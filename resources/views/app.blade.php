@@ -13,7 +13,7 @@
         
       <!-- Left Nav -->
         <div class="flex items-center space-x-10">
-          <a href="#" class="font-bold my-3 text-xl text-cyan-400">Laravel</a>
+          <a href="#" class="font-bold my-4 text-xl text-cyan-400">Laravel</a>
            <div class="hidden space-x-8 text-gray-600 text-nowrap md:flex">
              <a href="#">Manage Category</a>
              <a href="#">Manage Product</a>
@@ -30,44 +30,133 @@
 
     <!-- Container -->
     <section id="content">
-      <div class="flex justify-center items-center w-screen h-screen bg-zinc-50 ">
-        <!-- Card Container -->
-        <div class="relative flex flex-col m-6 space-y-10 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0 md:m-0">
-          <!-- Left Side -->
-          <div class="p-6 md:p-20">
-            <!-- Top -->
-            <h2 class="mb-5 text-4xl font-bold">Log In</h2>
-            <p class="max-w-sm mb-10 font-light text-gray-600">
-              Log in to your account to Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <div class="flex flex-col space-y-2">
-              <input 
-              type="text" 
-              class="p-3 border border-gray-200 rounded-md placeholder:font-light"
-              placeholder="Enter your email address">
-
-              <input 
-              type="password" 
-              class="p-3 border border-gray-200 rounded-md placeholder:font-light"
-              placeholder="Enter password">
-
-            </div>
-            
-            <!-- Bottom -->
-            <div class="flex flex-col items-center justify-between mt-6 space-y-6 md:flex-row md:space-y-0">
-              <a href="#" class="text-cyan-700">Forgot Password</a>
-              <button class="w-full md:w-auto flex justify-center items-center px-9 py-3 space-x-4 font-sans font-bold text-white rounded-md shadow-lg bg-cyan-400 shadow-cyan-100 hover:bg-opacity-90 shadow-sm hover:shadow-lg border transition hover:-translate-y-0.5 duration-150">
-                <span>Next</span>
-              </button>
-            </div>
+      <!-- Card Container -->
+      <div class="flex justify-center items-center">
+        <div class="overflow-auto mx-5 shadow-2xl rounded-2xl">
+          <!-- large Table content -->
+          <div class="hidden md:block">
+            <table>
+              <thead class="bg-gray-50 border-b-2 border-gray-300">
+                <tr>
+                  <th class="p-3 text-sm font-semibold tracking-wide text-left">ID</th>
+                  <th class="p-3 text-sm font-semibold tracking-wide text-left">Status</th>
+                  <th class="p-3 text-sm font-semibold tracking-wide text-left">Date</th>
+                  <th class="p-3 text-sm font-semibold tracking-wide text-left">Name</th>
+                  <th class="p-3 text-sm font-semibold tracking-wide text-left">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-gray-100">
+                  <td class="p-3 text-sm"><a href="#">10001</a>
+                  </td>
+                  <td class="p-3">
+                    <span class="p-2 text-sm bg-green-200 rounded-xl">
+                      Delivered
+                    </span>
+                  </td>
+                  <td class="p-3 text-sm">11/05/2024
+                  </td>
+                  <td class="p-3 text-sm whitespace-nowrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, ullam!
+                  </td>
+                  <td class="w-25 p-3 text-sm">$500
+                  </td>
+                </tr>
+                <tr class="bg-white">
+                  <td class="p-3 text-sm"><a href="#">10001</a>
+                  </td>
+                  <td class="p-3">
+                    <span class="p-2 text-sm bg-green-200 rounded-xl">
+                      Delivered
+                    </span>
+                  </td>
+                  <td class="p-3 text-sm">11/05/2024
+                  </td>
+                  <td class="p-3 text-sm whitespace-nowrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, ullam!
+                  </td>
+                  <td class="w-25 p-3 text-sm">$500
+                  </td>
+                </tr>
+                <tr class="bg-gray-100">
+                  <td class="p-3 text-sm"><a href="#">10001</a>
+                  </td>
+                  <td class="p-3">
+                    <span class="p-2 text-sm bg-green-200 rounded-xl">
+                      Delivered
+                    </span>
+                  </td>
+                  <td class="p-3 text-sm">11/05/2024
+                  </td>
+                  <td class="p-3 text-sm whitespace-nowrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, ullam!
+                  </td>
+                  <td class="w-25 p-3 text-sm">$500
+                  </td>
+                </tr>
+  
+              </tbody>
+            </table>
           </div>
           
-          <!-- Right Side -->
-          <img src="{{ asset('images/image.jpg')}}" alt="" class="w-[350px] hidden md:block" />
-
-
         </div>
       </div>
+      
+     <!-- Mobile content -->
+     <div class="grid grid-cols-1 sm:grid-cols-2 md:hidden">
+       
+      <div class="bg-white p-4 m-2 space-y-2 rounded-lg shadow-lg">
+        <div class="flex items-center space-x-2 text-sm">
+          <div>
+            <a href="#" class="text-blue-500 font-bold hover:underline">#1000</a>
+          </div>
+          <div class="text-gray-500">11/05/2025</div>
+          <div>
+            <span class="p-1.5 text-xs font-medium uppercase bg-green-200 rounded-lg">Delivered</span>
+          </div>
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, sequi!
+        </div>
+        <div class="text-sm font-medium text-black">
+          $200
+        </div>
+      </div>
+       
+      <div class="bg-white p-4 m-2 space-y-2 rounded-lg shadow-lg">
+        <div class="flex items-center space-x-2 text-sm">
+          <div>
+            <a href="#" class="text-blue-500 font-bold hover:underline">#1000</a>
+          </div>
+          <div class="text-gray-500">11/05/2025</div>
+          <div>
+            <span class="p-1.5 text-xs font-medium uppercase bg-green-200 rounded-lg">Delivered</span>
+          </div>
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, sequi!
+        </div>
+        <div class="text-sm font-medium text-black">
+          $200
+        </div>
+      </div>
+       
+      <div class="bg-white p-4 m-2 space-y-2 rounded-lg shadow-lg">
+        <div class="flex items-center space-x-2 text-sm">
+          <div>
+            <a href="#" class="text-blue-500 font-bold hover:underline">#1000</a>
+          </div>
+          <div class="text-gray-500">11/05/2025</div>
+          <div>
+            <span class="p-1.5 text-xs font-medium uppercase bg-green-200 rounded-lg">Delivered</span>
+          </div>
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, sequi!
+        </div>
+        <div class="text-sm font-medium text-black">
+          $200
+        </div>
+      </div>
+
+     </div>
     </section>
     
   </body>
