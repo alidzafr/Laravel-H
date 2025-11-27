@@ -21,10 +21,24 @@
            </div>
         </div>
         <!-- Right Nav -->
+        @guest
         <div class="hidden items-center space-x-5 md:flex">
-          <a href="#" class="px-4 py-2 my-2 font-bold text-cyan-400 border-2 border-cyan-400 rounded-lg">Login</a>
-          <a href="#" class="px-4 py-2 my-2 font-bold text-white bg-cyan-400 rounded-lg">Sign Up</a>
+          <a href="{{ route('login.show') }}" class="px-4 py-2 my-2 font-bold text-cyan-400 border-2 border-cyan-400 rounded-lg">Login</a>
+          <a href="{{ route('register.show')}}" class="px-4 py-2 my-2 font-bold text-white bg-cyan-400 rounded-lg">Sign Up</a>
         </div>
+        @endguest
+        {{-- Auth user --}}
+        @auth
+        <div class="flex items-center space-x-5">
+          <p>{{ Auth::user()->name }}</p>
+          <p>{{ Auth::user()->getRoleNames()->first() }}</p>
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button class="px-4 py-2 my-2 font-bold text-cyan-400 border-2 border-cyan-400 rounded-lg hover:bg-cyan-50">Logout</button>
+          </form>
+        </div>
+        @endauth
+
       </div>
     </div>
 
