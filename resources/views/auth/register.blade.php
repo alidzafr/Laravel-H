@@ -18,14 +18,15 @@
             <form action="{{ route('register') }}" method="POST">
               @csrf
               <!-- Top -->
-              <h2 class="mb-5 text-4xl font-bold">Log In</h2>
+              <h2 class="mb-5 text-4xl font-bold">Sign Up</h2>
               <p class="max-w-sm mb-10 font-light text-gray-600">
-                Log in to your account to Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Create new account
               </p>
               <div class="flex flex-col space-y-2">
                 <input 
                 type="text"
                 name="name"
+                value="{{ old('name') }}"
                 required
                 class="p-3 border border-gray-200 rounded-md placeholder:font-light"
                 placeholder="Enter your name">
@@ -33,6 +34,7 @@
                 <input 
                 type="email"
                 name="email"
+                value="{{ old('email') }}"
                 required
                 class="p-3 border border-gray-200 rounded-md placeholder:font-light"
                 placeholder="Enter your email address">
@@ -49,7 +51,7 @@
                 name="password_confirmation"
                 required
                 class="p-3 border border-gray-200 rounded-md placeholder:font-light"
-                placeholder="Enter password">
+                placeholder="Confirm password">
               </div>
               
               {{-- Validation Errors --}}
@@ -62,23 +64,20 @@
               @endif
               
               <!-- Bottom -->
-              <div class="flex flex-col items-center justify-between mt-6 space-y-6 md:flex-row md:space-y-0">
-                <a href="#" class="text-cyan-700">Forgot Password ?</a>
-                
-                <button 
-                type="submit" 
-                class="w-full md:w-auto flex justify-center items-center px-9 py-3 space-x-4 font-sans font-bold text-white rounded-md shadow-lg bg-cyan-400 shadow-cyan-100 hover:bg-opacity-90 shadow-sm hover:shadow-lg border transition hover:-translate-y-0.5 duration-150">
-                  <span>Next</span>
-                </button>
-              </div>
-
+              <button 
+              type="submit" 
+              class="w-full md:w-auto flex justify-center mx-auto px-9 py-3 my-6 font-sans font-bold text-white rounded-md shadow-lg bg-cyan-400 shadow-cyan-100 hover:bg-opacity-90 shadow-sm hover:shadow-lg border transition hover:-translate-y-0.5 duration-150">
+                <span>Create new account</span>
+              </button>
+              
             </form>
 
-            <div class="flex flex-col border-t border-gray-300 mt-6 space-y-6 md:flex-row md:space-y-0">
+            <div class="flex flex-col items-center justify-between border-t border-gray-300 mt-6 space-y-6 space-x-4 md:flex-row md:space-y-0">
+              <p class="text-gray-600">Already have account?</p>
               <a 
-              href="{{ route('register.show') }}" 
+              href="{{ route('login.show') }}" 
               class="w-full md:w-auto flex justify-center mx-auto px-9 py-3 my-6 font-sans font-bold text-white rounded-md shadow-lg bg-cyan-400 shadow-cyan-100 hover:bg-opacity-90 shadow-sm hover:shadow-lg border transition hover:-translate-y-0.5 duration-150">
-                <span>Create New Account</span>
+                <span>Login</span>
               </a>
             </div>
           </div>
