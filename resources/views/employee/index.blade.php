@@ -17,7 +17,7 @@
             </div>
             <!-- Navigation Menu -->
             <div class="my-8 px-4 space-y-2">
-                <div class="p-4 text-white font-bold w-full rounded-lg bg-linear-to-r/srgb from-indigo-500 to-teal-400">
+                <div class="p-4">
                     <a href="index.html">
                         Dashboard
                     </a>
@@ -27,7 +27,7 @@
                         Resume Analyzer
                     </a>
                 </div>
-                <div class="p-4">
+                <div class="p-4 text-white font-bold w-full rounded-lg bg-linear-to-r/srgb from-indigo-500 to-teal-400">
                     <a href="candidates.html">
                         Candidates
                     </a>
@@ -57,9 +57,13 @@
                         
                         <!-- Search bar -->
                         <div>
-                            <input type="text" 
-                            class="p-3 w-150 border border-gray-200 rounded-lg placeholder:font-light"
-                            placeholder="Search candidate...">
+                            <form action="{{route('employee.search')}}" method="GET" id="searchForm" class="w-full">
+                                <input name="keyword" 
+                                    id="searchCandidate" 
+                                    type="text"
+                                    class="p-3 w-150 border border-gray-200 rounded-lg placeholder:font-light"
+                                    placeholder="Search candidate...">
+                            </form>
                         </div>
                         
                         <!-- Filter -->
@@ -91,6 +95,14 @@
                     </div>
                 </div>
                 
+                @isset($keyword)
+                <div class="p-4 col-span-4">
+                    <h1 class="font-bold text-2xl">
+                        Showing result of "{{$keyword}}":
+                    </h1>
+                </div>
+                @endisset
+                
                 @forelse ($employees as $employee)
                 <!-- Candidate card -->
                 <div class="flex flex-col m-2 p-6 space-y-2 font-light bg-white rounded-xl col-span-2">
@@ -117,14 +129,14 @@
                         <div>{{ $employee->email }}</div>
                         <div>{{ $employee->phone_number }}</div>
                         <div>{{ $employee->address }}</div>
-                        <div>3 Years Experience</div>
+                        {{-- <div>{{ $employee->skills->first() }}</div> --}}
                     </div>
                     
                     <!-- 3th Row -->
                     <div class="">
                         Top Skills
                         <div class="flex m-2 space-x-4 font-extralight">
-                            @forelse ($employee->skill as $skill)
+                            @forelse ($employee->skills as $skill)
                                 <div class="px-1 rounded-md border border-gray-300">{{$skill->name}}</div>
                             @empty
                                 
@@ -137,6 +149,7 @@
 
                     <!-- 4th Row -->
                     <div class="flex font-extralight w-full justify-center space-x-8">
+                        <div class="font-bold text-red-600">Link are empty !</div>
                         <div><a href="#" class="hover:text-blue-500">View Details</a></div>
                         <div><a href="#" class="hover:text-blue-500">Downloads</a></div>
                         <div><a href="#" class="hover:text-blue-500">Move to Trash</a></div>

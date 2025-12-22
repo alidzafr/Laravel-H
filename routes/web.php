@@ -11,6 +11,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/employee', [EmployeeController::class, 'index'])->name('employee.index');
+Route::get('/employee/search', [EmployeeController::class, 'search'])->name('employee.search');
 
 Route::get('/', function () {
     return view('welcome');
