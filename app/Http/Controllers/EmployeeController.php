@@ -29,4 +29,14 @@ class EmployeeController extends Controller
             'keyword' => $keyword
         ]);
     }
+
+    public function dashboard()
+    {
+        return view('employee.dashboard');
+    }
+
+    public function upload()
+    {
+        return view('employee.upload');
+    }
 }

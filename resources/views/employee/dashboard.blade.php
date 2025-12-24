@@ -23,17 +23,17 @@
                     </a>
                 </div>
                 <div class="p-4">
-                    <a href="upload.html">
+                    <a href="{{ route('employee.analyzer') }}">
                         Resume Analyzer
                     </a>
                 </div>
                 <div class="p-4">
-                    <a href="candidates.html">
+                    <a href="{{ route('employee.index')}}">
                         Candidates
                     </a>
                 </div>
                 <div class="p-4">
-                    <a href="#dashboard">
+                    <a href="#">
                         Job Posting
                     </a>
                 </div>

@@ -12,6 +12,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/employee', [EmployeeController::class, 'index'])->name('employee.index');
 Route::get('/employee/search', [EmployeeController::class, 'search'])->name('employee.search');
+Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
+Route::get('/employee/analyze', [EmployeeController::class, 'upload'])->name('employee.analyzer');
 
 Route::get('/', function () {
     return view('welcome');

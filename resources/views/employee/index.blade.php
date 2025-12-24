@@ -13,27 +13,27 @@
             <!-- Logo -->
             <div class="py-4 px-6">
                 <h1 class="text-2xl font-bold text-gray-700">CV Finder</h1>
-                <h1 class="text-sm font-light">The Next Recruitment Tools</h1>
+                <h1 class="text-sm font-light">Recruitment Tools</h1>
             </div>
             <!-- Navigation Menu -->
             <div class="my-8 px-4 space-y-2">
                 <div class="p-4">
-                    <a href="index.html">
+                    <a href="{{ route('employee.dashboard') }}">
                         Dashboard
                     </a>
                 </div>
                 <div class="p-4">
-                    <a href="upload.html">
+                    <a href="{{ route('employee.analyzer') }}">
                         Resume Analyzer
                     </a>
                 </div>
                 <div class="p-4 text-white font-bold w-full rounded-lg bg-linear-to-r/srgb from-indigo-500 to-teal-400">
-                    <a href="candidates.html">
+                    <a href="{{ route('employee.index')}}">
                         Candidates
                     </a>
                 </div>
                 <div class="p-4">
-                    <a href="#dashboard">
+                    <a href="#">
                         Job Posting
                     </a>
                 </div>
@@ -125,10 +125,19 @@
                         </div>
                     </div>
                     <!-- 2nd Row -->
-                    <div class="grid grid-cols-2 font-extralight">
-                        <div>{{ $employee->email }}</div>
-                        <div>{{ $employee->phone_number }}</div>
-                        <div>{{ $employee->address }}</div>
+                    <div class="grid grid-cols-2 font-light">
+                        <div>
+                            <i class="bi bi-envelope-fill"></i>
+                            {{ $employee->email }}
+                        </div>
+                        <div>
+                            <i class="bi bi-telephone-fill"></i>
+                            {{ $employee->phone_number }}
+                        </div>
+                        <div>
+                            <i class="bi bi-geo-fill"></i>
+                            {{ $employee->address }}
+                        </div>
                         {{-- <div>{{ $employee->skills->first() }}</div> --}}
                     </div>
                     
@@ -149,7 +158,7 @@
 
                     <!-- 4th Row -->
                     <div class="flex font-extralight w-full justify-center space-x-8">
-                        <div class="font-bold text-red-600">Link are empty !</div>
+                        {{-- <div class="font-bold text-red-600">Link are empty !</div> --}}
                         <div><a href="#" class="hover:text-blue-500">View Details</a></div>
                         <div><a href="#" class="hover:text-blue-500">Downloads</a></div>
                         <div><a href="#" class="hover:text-blue-500">Move to Trash</a></div>
