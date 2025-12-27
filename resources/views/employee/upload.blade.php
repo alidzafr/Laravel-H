@@ -13,7 +13,7 @@
             <!-- Logo -->
             <div class="py-4 px-6">
                 <h1 class="text-2xl font-bold text-gray-700">CV Finder</h1>
-                <h1 class="text-sm font-light">The Next Recruitment Tools</h1>
+                <h1 class="text-sm font-light">Recruitment Tools</h1>
             </div>
             <!-- Navigation Menu -->
             <div class="my-8 px-4 space-y-2">
@@ -65,7 +65,7 @@
 
             <div class="my-40 flex flex-col items-center justify-center w-full">
                 <div class="px-4 p-3 text-3xl bg-white rounded-lg items-center justify-center">
-                    <i class="bi bi-file-earmark"></i>
+                    <i class="bi bi-file-earmark-pdf"></i>
                 </div>
                 <p class="my-4 text-xl font-bold">No Resumes Uploaded</p>
                 <h2 class="text-lg">load your first resume to get started with AI-powered analysis.</h2>

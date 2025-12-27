@@ -13,7 +13,7 @@
             <!-- Logo -->
             <div class="py-4 px-6">
                 <h1 class="text-2xl font-bold text-gray-700">CV Finder</h1>
-                <h1 class="text-sm font-light">The Next Recruitment Tools</h1>
+                <h1 class="text-sm font-light">Recruitment Tools</h1>
             </div>
             <!-- Navigation Menu -->
             <div class="my-8 px-4 space-y-2">
@@ -50,10 +50,10 @@
 
             <!-- Grid Content -->
             <div class="grid grid-cols-2 md:grid-cols-4">
-                <div class="bg-gray-100 p-4 m-2 space-y-2 rounded-lg shadow-lg hover:scale-105 duration-150">
+                <div class="bg-gray-100 p-4 m-2 space-y-2 rounded-xl shadow-lg hover:scale-105 duration-150">
                     <div class="flex items-center space-x-2 text-sm">
-                        <div>
-                            <span class="px-2 py-1 text-xl font-medium bg-cyan-300 rounded-lg">#</span>
+                        <div class="px-3 py-2 my-2 text-2xl text-white rounded-xl shadow-md bg-linear-to-r from-cyan-500 to-blue-500">
+                            <i class="bi bi-file-text"></i>
                         </div>
                     </div>
                     <div class="text-4xl font-semibold text-black">
@@ -66,8 +66,8 @@
                 
                 <div class="bg-gray-100 p-4 m-2 space-y-2 rounded-lg shadow-lg hover:scale-105 duration-150">
                     <div class="flex items-center space-x-2 text-sm">
-                        <div>
-                            <span class="px-2 py-1 text-xl font-medium bg-cyan-300 rounded-lg">#</span>
+                        <div class="px-3 py-2 my-2 text-2xl text-white rounded-xl shadow-md bg-linear-to-r from-sky-500 to-indigo-500">
+                            <i class="bi bi-person"></i>
                         </div>
                     </div>
                     <div class="text-4xl font-semibold text-black">
@@ -80,12 +80,12 @@
                 
                 <div class="bg-gray-100 p-4 m-2 space-y-2 rounded-lg shadow-lg hover:scale-105 duration-150">
                     <div class="flex items-center space-x-2 text-sm">
-                        <div>
-                            <span class="px-2 py-1 text-xl font-medium bg-cyan-300 rounded-lg">#</span>
+                        <div class="px-3 py-2 my-2 text-2xl text-white rounded-xl shadow-md bg-linear-to-r from-purple-500 to-pink-500">
+                            <i class="bi bi-star"></i>
                         </div>
                     </div>
                     <div class="text-4xl font-semibold text-black">
-                        2
+                        80
                     </div>
                     <div>
                         Avg. Match Score
@@ -94,15 +94,15 @@
                 
                 <div class="bg-gray-100 p-4 m-2 space-y-2 rounded-lg shadow-lg hover:scale-105 duration-150">
                     <div class="flex items-center space-x-2 text-sm">
-                        <div>
-                            <span class="px-2 py-1 text-xl font-medium bg-cyan-300 rounded-lg">#</span>
+                        <div class="px-3 py-2 my-2 text-2xl text-white rounded-xl shadow-md bg-linear-to-r from-violet-500 to-fuchsia-500">
+                            <i class="bi bi-clock"></i>
                         </div>
                     </div>
                     <div class="text-4xl font-semibold text-black">
-                        2
+                        10
                     </div>
                     <div>
-                        Total Resume
+                        Avg. Processing Time
                     </div>
                 </div>
 
@@ -115,14 +115,76 @@
                 </div>
 
                 <div class="bg-gray-100 p-4 m-2 col-span-2 rounded-lg shadow-lg">
-                    Processing Que
+                    <div class="flex justify-between">
+                        <h1>Processing Queue</h1>
+                        <h3 class="text-sm">0 active</h3>
+                    </div>
+                    <div class="flex flex-col my-15 items-center">
+                        <div class="mb-3 text-4xl">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <h1>No resume process.</h1>
+                    </div>
                 </div>
                 
                 <div class="bg-gray-100 p-4 m-2 col-span-2 rounded-lg shadow-lg">
-                    Recent Resumes
-                    <div class="p-2">
-                        <div>CV Andi</div>
-                        <div>CV Andi</div>
+                    <div class="flex p-2 justify-between">
+                        Recent Resumes
+                    </div>
+                    {{-- Resume list --}}
+                    
+                    <div class="flex p-2 space-x-3 items-center rounded-xl border border-gray-100 hover:border-gray-400">
+                        <div class="px-4 py-3 bg-cyan-100 rounded-xl">
+                            JS
+                        </div>
+                        <div class="w-full">
+                            <h2>
+                                Jaden Smith
+                            </h2>
+                            <h3 class="text-sm">
+                                1/12/2024
+                            </h3>
+                        </div>
+                        <div class="flex justify-end w-full space-x-4">
+                            <div class="hidden lg:flex lg:space-x-2">
+                                <i class="bi bi-star"></i>
+                                <h3>
+                                    92 %
+                                </h3>
+                            </div>
+                            <div class="px-2 py-1 text-xs text-green-800 bg-green-300 rounded-lg">
+                                Completed
+                            </div>
+                            <i class="bi bi-eye"></i>
+                            <i class="bi bi-download"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="flex p-2 space-x-3 items-center rounded-xl border border-gray-100 hover:border-gray-400">
+                        <div class="px-4 py-3 bg-cyan-100 rounded-xl">
+                            JS
+                        </div>
+                        <div class="w-full">
+                            <h2>
+                                Jaden Smith
+                            </h2>
+                            <h3 class="text-sm">
+                                1/12/2024
+                            </h3>
+                        </div>
+                        <div class="flex justify-end w-full space-x-4">
+                            <div class="hidden lg:flex lg:space-x-2">
+                                <i class="bi bi-star"></i>
+                                <h3>
+                                    92 %
+                                </h3>
+                            </div>
+                            <div class="px-2 py-1 text-xs text-green-800 bg-green-300 rounded-lg">
+                                Completed
+                            </div>
+                            <i class="bi bi-eye"></i>
+                            <i class="bi bi-download"></i>
+                        </div>
                     </div>
                 </div>
 
