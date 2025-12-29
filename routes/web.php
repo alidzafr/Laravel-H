@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ResumeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register.show');
@@ -14,6 +15,8 @@ Route::get('/employee', [EmployeeController::class, 'index'])->name('employee.in
 Route::get('/employee/search', [EmployeeController::class, 'search'])->name('employee.search');
 Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
 Route::get('/employee/analyze', [EmployeeController::class, 'upload'])->name('employee.analyzer');
+
+Route::post('/resume', [ResumeController::class, 'store'])->name('resume.store');
 
 Route::get('/', function () {
     return view('welcome');

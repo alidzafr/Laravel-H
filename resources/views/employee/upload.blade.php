@@ -48,20 +48,24 @@
                 <h3 class="text-lg">Manage and review files</h3>
             </div>
 
-            <div class="flex items-center justify-center w-full">
-                <label for="dropzone-file" class="flex flex-col mx-2 items-center justify-center w-full h-80 bg-gray-100 border border-dashed border-default-strong rounded-xl cursor-pointer hover:bg-neutral-tertiary-medium">
-                    <div class="flex flex-col items-center justify-center text-body pt-5 pb-6">
-                        <svg class="w-8 h-8 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h3a3 3 0 0 0 0-6h-.025a5.56 5.56 0 0 0 .025-.5A5.5 5.5 0 0 0 7.207 9.021C7.137 9.017 7.071 9 7 9a4 4 0 1 0 0 8h2.167M12 19v-9m0 0-2 2m2-2 2 2"/></svg>
-                        <p class="mb-4 text-xl"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                        <p class="mb-4 text-xl">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                        <div class="flex py-3 px-5 items-center bg-gray-200 rounded-xl transition hover:-translate-y-1.5 hover:shadow-md hover:shadow-gray-300 duration-150">
-                            <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
-                            Browse file
+            <form method="POST" action="{{ route('resume.store') }}" class="m-10" enctype="multipart/form-data">
+                @csrf
+                <div class="flex items-center justify-center w-full">
+                    <label for="dropzone-file" class="flex flex-col mx-2 items-center justify-center w-full h-80 bg-gray-100 border border-dashed border-default-strong rounded-xl cursor-pointer hover:bg-neutral-tertiary-medium">
+                        <div class="flex flex-col items-center justify-center text-body pt-5 pb-6">
+                            <svg class="w-8 h-8 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h3a3 3 0 0 0 0-6h-.025a5.56 5.56 0 0 0 .025-.5A5.5 5.5 0 0 0 7.207 9.021C7.137 9.017 7.071 9 7 9a4 4 0 1 0 0 8h2.167M12 19v-9m0 0-2 2m2-2 2 2"/></svg>
+                            <p class="mb-4 text-xl"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                            <p class="mb-4 text-xl">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                            <div class="flex py-3 px-5 items-center bg-gray-200 rounded-xl transition hover:-translate-y-1.5 hover:shadow-md hover:shadow-gray-300 duration-150">
+                                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
+                                Browse file
+                            </div>
                         </div>
-                    </div>
-                    <input id="dropzone-file" type="file" class="hidden" />
-                </label>
-            </div> 
+                        <input name="resumepdf" id="dropzone-file" type="file" class="hidden" />
+                        <button type="submit">Submit</button>
+                    </label>
+                </div>
+            </form>
 
             <div class="my-40 flex flex-col items-center justify-center w-full">
                 <div class="px-4 p-3 text-3xl bg-white rounded-lg items-center justify-center">
