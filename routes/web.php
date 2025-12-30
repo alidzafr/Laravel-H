@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ResumeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register.show');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login.show');
@@ -19,5 +20,31 @@ Route::get('/employee/analyze', [EmployeeController::class, 'upload'])->name('em
 Route::post('/resume', [ResumeController::class, 'store'])->name('resume.store');
 
 Route::get('/', function () {
-    return view('welcome');
+    $response = Http::withToken(config('services.openai.secret'))
+    ->post('https://api.openai.com/v1/chat/completions', 
+    // prompt
+    [
+        "model" => "gpt-3.5-turbo",
+        // "reasoning": {"effort": "low"},
+            "messages" => [
+            [
+                "role" => "developer",
+                "content" => "Talk like a pirate."
+            ],
+            [
+                "role" => "user",
+                "content" => "Are semicolons optional in JavaScript?"
+            ]
+        ]
+    ])->json();
+
+    dd($response);
 })->name('index');
+
+// curl "https://api.openai.com/v1/responses" \
+//     -H "Content-Type: application/json" \
+//     -H "Authorization: Bearer $OPENAI_API_KEY" \
+//     -d '{
+//         "model": "gpt-5-nano",
+//         "input": "Write a one-sentence bedtime story about a unicorn."
+//     }'

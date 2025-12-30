@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'openai' => [
+        'secret' => env('OPENAI_API_KEY')
+    ]
+    // Open .env to setup openai api key
+
 ];
