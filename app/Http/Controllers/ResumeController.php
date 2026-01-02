@@ -81,6 +81,47 @@ class ResumeController extends Controller
 
         dd($response);
         
-    }
-    
-}
+        "contents": [{
+                "parts":[
+                  { "text": "Please extract this resume from the following text.\n$text." }
+// sampe sini
+                ]
+              }],
+              "generationConfig": {
+                "responseMimeType": "application/json",
+                "responseJsonSchema": {
+                  "type": "object",
+                  "properties": {
+// ubah properties
+                    "recipe_name": {
+                      "type": "string",
+                      "description": "The name of the recipe."
+                    },
+                    "prep_time_minutes": {
+                        "type": "integer",
+                        "description": "Optional time in minutes to prepare the recipe."
+                    },
+                    "ingredients": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string", "description": "Name of the ingredient."},
+                          "quantity": { "type": "string", "description": "Quantity of the ingredient, including units."}
+                        },
+                        "required": ["name", "quantity"]
+                      }
+                    },
+                    "instructions": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  },
+                  "required": ["recipe_name", "ingredients", "instructions"]
+                }
+              }
+                
+            }
+            
+        
+        }

@@ -20,25 +20,26 @@ Route::get('/employee/analyze', [EmployeeController::class, 'upload'])->name('em
 Route::post('/resume', [ResumeController::class, 'store'])->name('resume.store');
 
 Route::get('/', function () {
-    $response = Http::withToken(config('services.openai.secret'))
-    ->post('https://api.openai.com/v1/chat/completions', 
-    // prompt
-    [
-        "model" => "gpt-3.5-turbo",
-        // "reasoning": {"effort": "low"},
-            "messages" => [
+    $response = Http::withHeaders([
+        "Content-Type" => "application/json",
+        "x-goog-api-key" => env('GEMINI_API_KEY')
+    ])
+        ->post(
+            'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
             [
-                "role" => "developer",
-                "content" => "Talk like a pirate."
-            ],
-            [
-                "role" => "user",
-                "content" => "Are semicolons optional in JavaScript?"
+                // prompt
+                "contents" => [
+                    "parts" => ["text" => "Explain how car turbo works in a few words"]
+                ]
             ]
-        ]
-    ])->json();
+        );
 
-    dd($response);
+    if ($response->successful()) {
+        $text = $response->json()['candidates'][0]['content']['parts'][0]['text'];
+    } else {
+        $text = "something is wrong";
+    }
+    dd($text);
 })->name('index');
 
 // curl "https://api.openai.com/v1/responses" \
