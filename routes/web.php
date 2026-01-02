@@ -12,14 +12,14 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/employee', [EmployeeController::class, 'index'])->name('employee.index');
+Route::get('/', [EmployeeController::class, 'index'])->name('employee.index');
 Route::get('/employee/search', [EmployeeController::class, 'search'])->name('employee.search');
 Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
 Route::get('/employee/analyze', [EmployeeController::class, 'upload'])->name('employee.analyzer');
 
 Route::post('/resume', [ResumeController::class, 'store'])->name('resume.store');
 
-Route::get('/', function () {
+Route::get('/wololo', function () {
     $response = Http::withHeaders([
         "Content-Type" => "application/json",
         "x-goog-api-key" => env('GEMINI_API_KEY')
