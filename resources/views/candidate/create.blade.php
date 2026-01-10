@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    {{-- <script src="script.js" defer></script> --}}
 </head>
 <body>
     <!-- Container -->
@@ -49,7 +50,35 @@
             </div>
 
           <!-- Form -->
-          <form action="{{ route('resume.store') }}" method="POST">
+          <form action="{{ route('candidate.store') }}" method="post">
+            
+            <div class="flex min-h-screen items-center">
+              <div class="flex flex-col mx-auto px-4 py-6 min-w-2xl text-white bg-black rounded-xl">
+                
+                <h1 class="mb-2 text-2xl font-bold">Tags</h1>
+                <h3 class="mb-2 text-lg">press enter or add a coma after each tag</h3>
+  
+                <!-- Tag box -->
+                <div class="tagbox flex flex-wrap mb-4 w-3xl min-h-32 bg-neutral-800 rounded-lg">
+                  <!-- Tag Content here -->
+                  <input type="text"
+                  class="p-2 m-2 outline-none h-fit">
+                </div>
+  
+                <div class="flex justify-between">
+                  <div class="flex text-gray-400">
+                    <!-- Count -->
+                    <div class="count">0</div>
+                    <div class="max_tags">/5</div>
+                  </div>
+                  <button class="p-2 bg-blue-500 rounded-xl">submit</button>
+                </div>
+  
+              </div>
+            </div>
+
+          </form>
+          {{-- <form action="{{ route('resume.store') }}" method="POST">
             <div class="p-4 space-y-12 bg-blue-900 rounded-xl">
 
               <div class="border-b border-white/10 pb-12">
@@ -224,11 +253,11 @@
               </div>
             </div>
 
-          </form>
+          </form> --}}
 
-          @php
+          {{-- @php
             var_dump($employee);
-        @endphp
+          @endphp --}}
         </div>
     </div>
 </body>

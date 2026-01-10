@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\CandidateController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 
@@ -12,14 +11,13 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/', [EmployeeController::class, 'index'])->name('employee.index');
-Route::get('/employee/search', [EmployeeController::class, 'search'])->name('employee.search');
-Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
-Route::get('/employee/analyze', [EmployeeController::class, 'upload'])->name('employee.analyzer');
+// Route::get('/', [CandidateController::class, 'index'])->name('candidate.index');
+Route::get('/create', [CandidateController::class, 'create'])->name('candidate.create');
+Route::post('/store', [CandidateController::class, 'store'])->name('candidate.store');
+// Route::get('/analyze', [CandidateController::class, 'analyze'])->name('candidate.analyze');
+// Route::post('/parse', [CandidateController::class, 'parse'])->name('candidate.parse');
+// Route::get('/search', [CandidateController::class, 'search'])->name('candidate.search');
 
-// Route::get('/resume/create', [ResumeController::class, 'create'])->name('employee.create');
-Route::post('/resume', [ResumeController::class, 'parse'])->name('resume.parse');
-Route::post('/resume/store', [ResumeController::class, 'store'])->name('resume.store');
 
 Route::get('/wololo', function () {
     $response = Http::withHeaders([
@@ -43,11 +41,3 @@ Route::get('/wololo', function () {
     }
     dd($text);
 })->name('index');
-
-// curl "https://api.openai.com/v1/responses" \
-//     -H "Content-Type: application/json" \
-//     -H "Authorization: Bearer $OPENAI_API_KEY" \
-//     -d '{
-//         "model": "gpt-5-nano",
-//         "input": "Write a one-sentence bedtime story about a unicorn."
-//     }'

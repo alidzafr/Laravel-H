@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employee_skill', function (Blueprint $table) {
+        Schema::create('candidates', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained()->onDelete('cascade');
-            $table->foreignId('skill_id')->constrained()->onDelete('cascade');
-            $table->string('level');
-            $table->integer('year_exp')->nullable();
+            $table->string('name');
+            $table->enum('gender', ['male', 'female']);
+            $table->text('city');
+            $table->json('skills');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employee_skill');
+        Schema::dropIfExists('candidates');
     }
 };
