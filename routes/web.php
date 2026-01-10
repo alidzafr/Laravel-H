@@ -17,7 +17,9 @@ Route::get('/employee/search', [EmployeeController::class, 'search'])->name('emp
 Route::get('/employee/dashboard', [EmployeeController::class, 'dashboard'])->name('employee.dashboard');
 Route::get('/employee/analyze', [EmployeeController::class, 'upload'])->name('employee.analyzer');
 
-Route::post('/resume', [ResumeController::class, 'store'])->name('resume.store');
+// Route::get('/resume/create', [ResumeController::class, 'create'])->name('employee.create');
+Route::post('/resume', [ResumeController::class, 'parse'])->name('resume.parse');
+Route::post('/resume/store', [ResumeController::class, 'store'])->name('resume.store');
 
 Route::get('/wololo', function () {
     $response = Http::withHeaders([

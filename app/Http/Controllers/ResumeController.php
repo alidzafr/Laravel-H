@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Smalot\PdfParser\Parser;
@@ -11,7 +12,7 @@ use OpenAI\Laravel\Facades\OpenAI;
 
 class ResumeController extends Controller
 {
-  public function store(Request $request)
+  public function parse(Request $request)
   {
     // Validation max 5mb
     $request->validate([
@@ -22,8 +23,8 @@ class ResumeController extends Controller
     // Parsing to plain text
     $parser = new Parser();
     $pdf = $parser->parseFile($pdfPath);
-    $text = $pdf->getText();
-    // dd($text);
+    $resumetext = $pdf->getText();
+    // dd($resumetext);
 
     // Json Schema for API response
     $jsonSchema = [
@@ -79,7 +80,7 @@ class ResumeController extends Controller
       [
         // prompt
         "contents" => [
-          "parts" => ["text" => "Please extract this resume from the following text.\n$text."]
+          "parts" => ["text" => "Please extract this resume from the following text.\n$resumetext."]
         ],
         "generationConfig" => [
           "responseMimeType" => "application/json",
@@ -89,10 +90,17 @@ class ResumeController extends Controller
     );
 
     if ($response->successful()) {
-      $text = $response->json()['candidates'][0]['content']['parts'][0]['text'];
+      $resumetext = $response->json()['candidates'][0]['content']['parts'][0]['text'];
     } else {
-      $text = "something is wrong";
+      $resumetext = "something is wrong";
     }
-    dd($text);
+    $employee = json_decode($resumetext, true);
+    // return view employee.create [$text]
+    return view('employee/create', ['employee' => $employee]);
+  }
+
+  public function store(Employee $employee)
+  {
+    // Sampe Sini ambil 
   }
 }

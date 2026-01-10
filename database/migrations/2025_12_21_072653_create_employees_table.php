@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->date('age');
+            $table->enum('gender', ['male', 'female']);
             $table->string('email');
             $table->text('address');
             $table->string('phone_number');
+            $table->json('skills');
             $table->timestamps();
         });
     }

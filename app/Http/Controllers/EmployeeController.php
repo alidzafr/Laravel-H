@@ -12,7 +12,7 @@ class EmployeeController extends Controller
     {
         // return Employee::with('skills')->get();
         $employees = Employee::with('skills')->get();
-        
+
         return view('employee.index', [
             'employees' => $employees,
         ]);
@@ -38,5 +38,19 @@ class EmployeeController extends Controller
     public function upload()
     {
         return view('employee.upload');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'gender' => 'required|in:male,female',
+            'skills' => 'required|array|min:1',
+            'skills.*' => 'string|max:50'
+        ]);
+
+        Employee::create($validated);
+
+        return redirect()->back()->with('success', 'candidate created');
     }
 }

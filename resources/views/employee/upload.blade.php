@@ -48,7 +48,7 @@
                 <h3 class="text-lg">Manage and review files</h3>
             </div>
 
-            <form method="POST" action="{{ route('resume.store') }}" class="m-10" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('resume.parse') }}" class="m-10" enctype="multipart/form-data">
                 @csrf
                 <div class="flex items-center justify-center w-full">
                     <label for="dropzone-file" class="flex flex-col mx-2 items-center justify-center w-full h-80 bg-gray-100 border border-dashed border-default-strong rounded-xl cursor-pointer hover:bg-neutral-tertiary-medium">
