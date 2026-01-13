@@ -15,5 +15,5 @@ class Candidate extends Model
 
     protected $casts = [
         'skills' => 'array'
-    ]
+    ];
 }

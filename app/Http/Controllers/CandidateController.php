@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Candidate;
+use Illuminate\Support\Facades\Http;
+use Smalot\PdfParser\Parser;
 
 class CandidateController extends Controller
 {
@@ -102,16 +104,18 @@ class CandidateController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string',
-            'gender' => 'required|in:male,female',
-            'city' => 'required|string',
+            // 'name' => 'required|string',
+            // 'gender' => 'required|in:male,female',
+            // 'city' => 'required|string',
             'skills' => 'required|array|min:1',
             'skills.*' => 'string|max:50'
         ]);
 
-        Candidate::create($validated);
+        dd($validated);
 
-        return redirect()->back()->with('success', 'candidate created');
+        // Candidate::create($validated);
+
+        // return redirect()->back()->with('success', 'candidate created');
     }
 
     public function index()
