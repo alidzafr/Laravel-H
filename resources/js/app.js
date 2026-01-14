@@ -1,11 +1,11 @@
 // import './bootstrap';
 
 let tagbox = document.querySelector(".tagbox");
-let input = document.querySelector("input");
+let input = document.querySelector("#skillinput");
 let tagsArr = [];
 
 // Disable enter key on form
-document.querySelector('input')
+document.querySelector('#skillinput')
   .addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();

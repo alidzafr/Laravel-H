@@ -11,6 +11,7 @@ class Candidate extends Model
         'name',
         'gender',
         'city',
+        'skills',
     ];
 
     protected $casts = [

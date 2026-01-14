@@ -104,18 +104,13 @@ class CandidateController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            // 'name' => 'required|string',
-            // 'gender' => 'required|in:male,female',
-            // 'city' => 'required|string',
-            'skills' => 'required|array|min:1',
-            'skills.*' => 'string|max:50'
+            // 'name'   => 'required|string|max:255',
+            // 'gender' => 'required|string',
+            'city'    => 'nullable',
+            'skills'    => 'nullable',
         ]);
 
         dd($validated);
-
-        // Candidate::create($validated);
-
-        // return redirect()->back()->with('success', 'candidate created');
     }
 
     public function index()
