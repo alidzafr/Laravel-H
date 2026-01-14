@@ -30,9 +30,13 @@
                     <!-- Tag Content here -->
                     <input 
                     id="skillinput"
-                    name ="skills"
                     type="text"
                     class="p-2 m-2 outline-none h-fit">
+
+                    <input 
+                    type="hidden"
+                    id="hiddenData"
+                    name="skills">
                 </div>
 
                 

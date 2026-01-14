@@ -2,6 +2,7 @@
 
 let tagbox = document.querySelector(".tagbox");
 let input = document.querySelector("#skillinput");
+let hiddenData = document.getElementById('hiddenData');
 let tagsArr = [];
 
 // Disable enter key on form
@@ -30,25 +31,27 @@ function addTag(e)
 {
     if (e.key == "Enter"){
         e.preventDefault();
-        let tag = e.target.value.replace(/\s+/g, ' '); // remove unwanted spaces from tags
+        let tag = e.target.value.replace(/\s+/g, ' ');                  // remove unwanted spaces from tags
         
-        if(tag.length > 1 && !tagsArr.includes(tag)){ //if tag length greates than 1 and the tag isn't exist
-            tag.split(',').forEach(tag =>{ // splitting each tag from comma
-                tagsArr.push(tag); // Append into array
+        if(tag.length > 1 && !tagsArr.includes(tag)){                   // if tag length greates than 1 and the tag isn't exist
+            tag.split(',').forEach(tag =>{                              // splitting each tag from comma
+                tagsArr.push(tag);                                      // Append into array
                 createTag();
             });
         }
-        console.log(tagsArr);
+        hiddenData.value = JSON.stringify(tagsArr);                     // insert array to hiddendata
+        console.log(hiddenData.value);      
         e.target.value = "";
     }
 }
 
 function remove(element, tag)
 {
-    let index = tagsArr.indexOf(tag); // getting tag's index we wanted to delete
+    let index = tagsArr.indexOf(tag);                                   // getting tag's index we wanted to delete
     tagsArr = [...tagsArr.slice(0, index), ...tagsArr.slice(index + 1)]; //remove tag from array
-    element.parentElement.remove();  //remove li from tag-box
-    console.log(tagsArr);
+    element.parentElement.remove();                                     // remove li from tag-box
+    hiddenData.value = JSON.stringify(tagsArr);                         // insert array to hiddendata
+    console.log(hiddenData.value);
 }
 
 input.addEventListener("keyup", addTag);
